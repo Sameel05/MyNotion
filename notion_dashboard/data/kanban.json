@@ -1,0 +1,28 @@
+{
+  "doing": {
+    "color": "#fbbf24",
+    "items": [
+      {
+        "id": 1780562733113,
+        "title": "Exercise UB",
+        "tags": [
+          "Dev"
+        ],
+        "date": "TBD",
+        "assignee": "ME",
+        "color": "#4ade80"
+      }
+    ],
+    "title": "In Progress"
+  },
+  "done": {
+    "color": "#4ade80",
+    "items": [],
+    "title": "Done"
+  },
+  "todo": {
+    "color": "#7c6af7",
+    "items": [],
+    "title": "To Do"
+  }
+}

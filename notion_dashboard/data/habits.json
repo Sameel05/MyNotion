@@ -1,0 +1,77 @@
+[
+  {
+    "color": "#a89cf5",
+    "days": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "icon": "ti-moon",
+    "name": "Meditate",
+    "streak": 0
+  },
+  {
+    "color": "#4ade80",
+    "days": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "icon": "ti-run",
+    "name": "Exercise",
+    "streak": 0
+  },
+  {
+    "color": "#60a5fa",
+    "days": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "icon": "ti-book",
+    "name": "Read 30min",
+    "streak": 0
+  },
+  {
+    "color": "#fbbf24",
+    "days": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "icon": "ti-apple",
+    "name": "No Sugar",
+    "streak": 0
+  },
+  {
+    "color": "#2dd4bf",
+    "days": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "icon": "ti-code",
+    "name": "Code Daily",
+    "streak": 0
+  }
+]

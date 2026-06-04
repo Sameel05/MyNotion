@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notion Dashboard</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<!-- ═══════════════════ SIDEBAR ═══════════════════ -->
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="sidebar-logo">N</div>
+    <span class="sidebar-title">My Workspace</span>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-label">Views</div>
+    <div class="sidebar-item active" onclick="switchView('editor')"   id="nav-editor">
+      <i class="ti ti-file-text"></i><span>Notes Editor</span>
+    </div>
+    <div class="sidebar-item" onclick="switchView('planner')"  id="nav-planner">
+      <i class="ti ti-calendar"></i><span>Daily Planner</span>
+    </div>
+    <div class="sidebar-item" onclick="switchView('kanban')"   id="nav-kanban">
+      <i class="ti ti-layout-kanban"></i><span>Project Board</span>
+    </div>
+    <div class="sidebar-item" onclick="switchView('habits')"   id="nav-habits">
+      <i class="ti ti-flame"></i><span>Habit Tracker</span>
+    </div>
+  </div>
+
+  <div class="sidebar-section" style="border-top:1px solid var(--border);">
+    <div class="sidebar-label">Quick Access</div>
+    <div class="sidebar-item"><i class="ti ti-star"></i><span>Favourites</span></div>
+    <div class="sidebar-item"><i class="ti ti-clock"></i><span>Recent</span></div>
+    <div class="sidebar-item"><i class="ti ti-trash"></i><span>Trash</span></div>
+  </div>
+
+  <div class="collapse-btn" onclick="toggleSidebar()">
+    <i class="ti ti-layout-sidebar-left-collapse" id="collapse-icon"></i>
+    <span id="collapse-text">Collapse</span>
+  </div>
+</nav>
+
+<!-- ═══════════════════ MAIN ═══════════════════ -->
+<div class="main">
+  <div class="topbar">
+    <span class="page-title" id="topbar-title">📝 Notes Editor</span>
+    <div class="save-indicator" id="save-indicator"></div>
+    <div class="topbar-right">
+      <button class="btn" onclick="manualSave()"><i class="ti ti-device-floppy"></i> Save</button>
+      <button class="btn primary" id="action-btn" onclick="handleTopAction()">
+        <i class="ti ti-plus"></i> <span id="action-label">New Block</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- ── NOTES EDITOR ── -->
+    <div class="view active" id="view-editor">
+      <div class="editor-area">
+        <input class="editor-page-title" id="page-title" placeholder="Untitled" value="My Project Notes" />
+        <div id="editor-blocks"></div>
+      </div>
+      <div id="slash-menu" class="slash-menu" style="display:none"></div>
+    </div>
+
+    <!-- ── DAILY PLANNER ── -->
+    <div class="view" id="view-planner">
+      <div class="planner-header">
+        <div class="date-nav">
+          <button class="date-nav-btn" onclick="changeDay(-1)"><i class="ti ti-chevron-left"></i></button>
+          <span class="current-date" id="planner-date"></span>
+          <button class="date-nav-btn" onclick="changeDay(1)"><i class="ti ti-chevron-right"></i></button>
+        </div>
+        <button class="btn" onclick="changeDay(0,true)">Today</button>
+      </div>
+      <div class="time-grid" id="time-grid"></div>
+    </div>
+
+    <!-- ── KANBAN ── -->
+    <div class="view" id="view-kanban">
+      <div class="kanban-board" id="kanban-board"></div>
+    </div>
+
+    <!-- ── HABITS ── -->
+    <div class="view" id="view-habits">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px">
+        <h2 style="font-size:18px;font-weight:600">This Week's Habits</h2>
+        <div class="day-labels">
+          <span>Mon</span><span>Tue</span><span>Wed</span>
+          <span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+        </div>
+      </div>
+      <div class="habit-grid" id="habit-grid"></div>
+    </div>
+
+  </div><!-- /content -->
+</div><!-- /main -->
+
+<!-- ═══════════════════ MODAL ═══════════════════ -->
+<div class="modal-backdrop" id="modal" style="display:none" onclick="closeModal(event)">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-title" id="modal-title">Add Task</div>
+    <div id="modal-body"></div>
+    <div class="modal-row">
+      <button class="btn" onclick="closeModal()">Cancel</button>
+      <button class="btn primary" onclick="confirmModal()">Confirm</button>
+    </div>
+  </div>
+</div>
+
+<script src="/static/js/app.js"></script>
+</body>
+</html>
